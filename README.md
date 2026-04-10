@@ -1,11 +1,6 @@
 # 📚 Online Library System (Madriguera de Papel)
 
-> A full-stack web application for managing an online library, featuring a robust Java Spring Boot backend and a modern Vue.js frontend styled with Tailwind CSS.
-
-## 👁️ Preview
-
-*(Grab a quick GIF of your app running using a tool like ScreenToGif or LICEcap and add it here! It makes a huge difference.)*
-![Project Preview](https://via.placeholder.com/800x450.png?text=Add+a+GIF+or+Screenshot+here)
+> A full-stack web application for managing an online library, featuring a robust Java 21 Spring Boot backend and a modern Vue.js frontend styled with Tailwind CSS.
 
 ## 🛠️ Technology Stack
 
@@ -16,17 +11,19 @@
 * HTML5 / CSS3
 
 **Backend**
-* Java 17
+* Java 21
 * Spring Boot
 * RESTful APIs
-* MySQL *(Assuming MySQL, please update if it's different)*
+* SpringDoc OpenAPI (Swagger UI)
+* MySQL (containerized via Docker)
 
 ## ✨ Key Features
 
 * Complete catalog management (Add, edit, delete books).
 * User authentication and authorization.
 * Modern, responsive, and minimalist user interface.
-* *(Optional: Add another feature like "Role-based access control")*
+* Interactive API documentation generated automatically with Swagger UI.
+* Preloaded initial data for quick testing and demonstration out-of-the-box.
 
 ## ⚙️ Getting Started
 
@@ -34,8 +31,8 @@ Follow these instructions to get a copy of the project up and running on your lo
 
 ### Prerequisites
 * Node.js and npm (for the frontend)
-* Java JDK 17+ and Maven (for the backend)
-* MySQL server running
+* Java JDK 21 and Maven (for the backend)
+* Docker (for the MySQL database)
 
 ### Installation
 
@@ -44,18 +41,26 @@ Follow these instructions to get a copy of the project up and running on your lo
     git clone [https://github.com/HowardP98/online-library-system.git](https://github.com/HowardP98/online-library-system.git)
     ```
 
-2.  **Backend Setup:**
+2.  **Database Setup (Docker):**
+    * Make sure you have a MySQL container running and mapped to port `3307`. If you don't have one, you can spin it up quickly with:
+      ```bash
+      docker run --name library-db -e MYSQL_ROOT_PASSWORD=root -e MYSQL_DATABASE=library -p 3307:3306 -d mysql:latest
+      ```
+    * *(Note: The Spring Boot application is configured to automatically preload initial data upon startup, so no manual SQL scripts are required).*
+
+3.  **Backend Setup:**
     * Navigate to the backend directory:
         ```bash
         cd backend
         ```
-    * Configure your database credentials in `src/main/resources/application.properties`.
+    * Ensure your database credentials in `src/main/resources/application.properties` match your Docker container settings.
     * Run the Spring Boot application using Maven:
         ```bash
         mvn spring-boot:run
         ```
+    * Once running, you can explore the API documentation at: `http://localhost:8080/swagger-ui.html`
 
-3.  **Frontend Setup:**
+4.  **Frontend Setup:**
     * Navigate to the frontend directory:
         ```bash
         cd frontend
