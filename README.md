@@ -1,79 +1,174 @@
 # 📚 Online Library System (Madriguera de Papel)
 
-> A full-stack web application for managing an online library, featuring a robust Java 21 Spring Boot backend and a modern Vue.js frontend styled with Tailwind CSS.
+> Full-stack web application for managing an online library, featuring a robust **Java 21 + Spring Boot backend** and a modern **Vue.js 3 frontend** styled with Tailwind CSS.
+
+---
+
+## 🚀 Live Overview
+
+* 📦 Backend API: `http://localhost:8080`
+* 🎨 Frontend UI: `http://localhost:5173`
+* 📄 API Docs (Swagger): `http://localhost:8080/swagger-ui.html`
+
+---
 
 ## 🛠️ Technology Stack
 
-**Frontend**
+### 🎨 Frontend
+
 * Vue.js 3
 * TypeScript
 * Tailwind CSS
-* HTML5 / CSS3
+* Vite
+* Axios
 
-**Backend**
+### ⚙️ Backend
+
 * Java 21
 * Spring Boot
+* Spring Data JPA
 * RESTful APIs
 * SpringDoc OpenAPI (Swagger UI)
-* MySQL (containerized via Docker)
+* MySQL (Dockerized)
+
+---
+
+## 🧩 Project Structure
+
+```bash
+online-library-system/
+ ├── backend/    # Spring Boot API
+ ├── frontend/   # Vue 3 + Tailwind UI
+ └── README.md   # Main documentation
+```
+
+---
 
 ## ✨ Key Features
 
-* Complete catalog management (Add, edit, delete books).
-* User authentication and authorization.
-* Modern, responsive, and minimalist user interface.
-* Interactive API documentation generated automatically with Swagger UI.
-* Preloaded initial data for quick testing and demonstration out-of-the-box.
+* 📚 Complete book catalog management (CRUD)
+* 👤 User management system
+* 🔄 Loan/return system
+* 🎨 Modern, responsive UI (mobile-first)
+* 📄 Interactive API documentation (Swagger UI)
+* ⚡ Fast development with Vite
+* 🗄️ Preloaded demo data for testing
+
+---
 
 ## ⚙️ Getting Started
 
-Follow these instructions to get a copy of the project up and running on your local machine for development and testing purposes.
+Follow these instructions to run the project locally.
 
-### Prerequisites
-* Node.js and npm (for the frontend)
-* Java JDK 21 and Maven (for the backend)
-* Docker (for the MySQL database)
+---
 
-### Installation
+### 🔧 Prerequisites
 
-1.  **Clone the repository:**
-    ```bash
-    git clone [https://github.com/HowardP98/online-library-system.git](https://github.com/HowardP98/online-library-system.git)
-    ```
+* Node.js + npm
+* Java JDK 21
+* Maven
+* Docker
 
-2.  **Database Setup (Docker):**
-    * Make sure you have a MySQL container running and mapped to port `3307`. If you don't have one, you can spin it up quickly with:
-      ```bash
-      docker run --name library-db -e MYSQL_ROOT_PASSWORD=root -e MYSQL_DATABASE=library -p 3307:3306 -d mysql:latest
-      ```
-    * *(Note: The Spring Boot application is configured to automatically preload initial data upon startup, so no manual SQL scripts are required).*
+---
 
-3.  **Backend Setup:**
-    * Navigate to the backend directory:
-        ```bash
-        cd backend
-        ```
-    * Ensure your database credentials in `src/main/resources/application.properties` match your Docker container settings.
-    * Run the Spring Boot application using Maven:
-        ```bash
-        mvn spring-boot:run
-        ```
-    * Once running, you can explore the API documentation at: `http://localhost:8080/swagger-ui.html`
+### 📥 Installation
 
-4.  **Frontend Setup:**
-    * Navigate to the frontend directory:
-        ```bash
-        cd frontend
-        ```
-    * Install all project dependencies:
-        ```bash
-        npm install
-        ```
-    * Start the development server:
-        ```bash
-        npm run dev
-        ```
+#### 1. Clone the repository
+
+```bash
+git clone https://github.com/HowardP98/online-library-system.git
+cd online-library-system
+```
+
+---
+
+### 🐳 2. Database Setup (Docker)
+
+Run a MySQL container:
+
+```bash
+docker run --name library-db \
+-e MYSQL_ROOT_PASSWORD=root \
+-e MYSQL_DATABASE=library \
+-p 3307:3306 \
+-d mysql:latest
+```
+
+> ⚠️ Make sure your backend is configured to use port **3307**
+
+---
+
+### ⚙️ 3. Backend Setup
+
+```bash
+cd backend
+mvn spring-boot:run
+```
+
+🔗 Swagger UI available at:
+`http://localhost:8080/swagger-ui.html`
+
+---
+
+### 🎨 4. Frontend Setup
+
+```bash
+cd frontend
+npm install
+npm run dev
+```
+
+🌐 App running at:
+`http://localhost:5173`
+
+---
+
+## 🔌 Architecture Overview
+
+```
+[ Vue.js Frontend ]
+          │
+          ▼
+[ Spring Boot REST API ]
+          │
+          ▼
+[ MySQL Database (Docker) ]
+```
+
+---
+
+## 📄 API Documentation
+
+The API is fully documented using **Swagger UI**:
+
+```
+http://localhost:8080/swagger-ui.html
+```
+
+---
+
+## 🧪 Future Improvements
+
+* 🔐 JWT Authentication & Security
+* 🌍 Deployment (Docker Compose / Cloud)
+* 🧪 Unit & Integration Testing
+* 📊 Admin dashboard with analytics
+* 📦 CI/CD pipeline
+
+---
+
+## 🤝 Contributing
+
+Contributions are welcome! Feel free to fork the repo and submit a PR.
+
+---
 
 ## 📝 License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+---
+
+## 👨‍💻 Author
+
+Developed by **HowardP98** as a full-stack portfolio project.
