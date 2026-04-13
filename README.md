@@ -39,6 +39,7 @@
 online-library-system/
  ├── backend/    # Spring Boot API
  ├── frontend/   # Vue 3 + Tailwind UI
+ ├── LICENSE       # MIT License
  └── README.md   # Main documentation
 ```
 
