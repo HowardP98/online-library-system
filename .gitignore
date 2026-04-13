@@ -30,3 +30,7 @@ Thumbs.db
 # Docker (opcional)
 # ======================
 .env
+
+# Env files
+.env
+.env.*
