@@ -138,8 +138,10 @@ npm run test
 ## 🌍 Variables de Entorno
 
 Ejemplo:
+Create a `.env` file based on `.env.example`:
 
 ```env
+cp .env.example .env
 VITE_API_BASE_URL=http://localhost:8080/api
 ```
 
