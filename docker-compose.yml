@@ -1,36 +1,30 @@
-version: '3.8'
+name: Java Library System CI
 
-services:
-  mysql:
-    image: mysql:8
-    container_name: library_db
-    environment:
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: library_db
-    ports:
-      - "3307:3306"
-    volumes:
-      - mysql_data:/var/lib/mysql
+on:
+  push:
+    branches: [ "main", "master" ]
+  pull_request:
+    branches: [ "main", "master" ]
 
-  backend:
-    build: ./backend
-    container_name: library_backend
-    depends_on:
-      - mysql
-    ports:
-      - "8080:8080"
-    environment:
-      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/library_db
-      SPRING_DATASOURCE_USERNAME: root
-      SPRING_DATASOURCE_PASSWORD: root
+jobs:
+  build:
+    runs-on: ubuntu-latest
 
-  frontend:
-    build: ./frontend
-    container_name: library_frontend
-    ports:
-      - "5173:80"
-    depends_on:
-      - backend
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
 
-volumes:
-  mysql_data:
+    - name: Set up JDK 17
+      uses: actions/setup-java@v4
+      with:
+        java-version: '17'
+        distribution: 'temurin'
+        cache: maven
+
+    - name: Build and Package
+      working-directory: ./backend
+      run: mvn -B package
+
+    - name: Run Unit Tests
+      working-directory: ./backend
+      run: mvn test
