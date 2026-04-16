@@ -1,8 +1,6 @@
 # 📚 Online Library System (Madriguera de Papel)
 
-> Full-stack web application for managing an online library, featuring a robust **Java 21 + Spring Boot backend** and a modern **Vue.js 3 frontend** styled with Tailwind CSS.
-
-![Java Library System CI](https://github.com/HowardP98/online-library-system/actions/workflows/maven.yml/badge.svg)
+> A high-performance full-stack solution for digital library management. This project features a robust **Spring Boot 3** API built with **Java 21**, following clean architecture principles and secure data handling. The user experience is powered by a reactive **Vue.js 3** interface, styled with **Tailwind CSS** for a modern, responsive feel. The entire ecosystem is containerized using **Docker** to ensure consistent deployment across any environment.
 
 ---
 
@@ -39,16 +37,12 @@
 
 ```bash
 online-library-system/
-├── .github/
-│   └── workflows/
-│       └── maven.yml          # CI/CD Pipeline (Automated Testing)
-├── backend/                   # Spring Boot REST API (Java 17)
-│   ├── src/                   # Business logic and Tests
-│   └── pom.xml                # Maven Dependencies
-├── frontend/                  # Vue 3 + Tailwind CSS User Interface
-├── .gitignore                 # Exclusion rules for version control
-├── LICENSE                    # MIT License
-└── README.md                  # Main project documentation
+ ├── backend/            # Spring Boot API
+ ├── frontend/           # Vue 3 + Tailwind UI
+ ├── .gitignore          # Version control exclusion rules
+ ├── LICENSE             # MIT License
+ ├── README.md           # Main documentation
+ └── docker-compose.yml  # Full-stack container orchestration
 ```
 
 ---
