@@ -46,7 +46,6 @@ online-library-system/
 │   ├── src/                   # Business logic and Tests
 │   └── pom.xml                # Maven Dependencies
 ├── frontend/                  # Vue 3 + Tailwind CSS User Interface
-├── docker-compose.yml         # Container orchestration for Dev/Prod
 ├── .gitignore                 # Exclusion rules for version control
 ├── LICENSE                    # MIT License
 └── README.md                  # Main project documentation
